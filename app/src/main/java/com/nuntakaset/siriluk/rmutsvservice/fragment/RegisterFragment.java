@@ -85,7 +85,7 @@ public class RegisterFragment extends Fragment{
                 if (nameString.equals("") || userString.equals("") || passwordString.equals("")) {
 //                    Have Space
                     MyAlert myAlert = new MyAlert(getActivity());
-                    myAlert.myDialog("Hlave Space",
+                    myAlert.myDialog("Have Space",
                             "Please Fill All Every Blank");
 
                 } else if (aBoolean) {
