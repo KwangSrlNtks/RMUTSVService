@@ -1,6 +1,5 @@
 package com.nuntakaset.siriluk.rmutsvservice.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -15,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nuntakaset.siriluk.rmutsvservice.R;
-import com.nuntakaset.siriluk.rmutsvservice.SalerActivity;
 import com.nuntakaset.siriluk.rmutsvservice.utility.GetAllData;
 import com.nuntakaset.siriluk.rmutsvservice.utility.MyAlert;
 import com.nuntakaset.siriluk.rmutsvservice.utility.Mycomtent;
@@ -51,8 +49,8 @@ public class MainFragment extends Fragment{
             @Override
             public void onClick(View view) {
 
-                EditText userEditText = getView().findViewById(R.id.edtUser);
-                EditText passwordEditText = getView().findViewById(R.id.edtPassword);
+                EditText userEditText = getView().findViewById(R.id.edtUserMain);
+                EditText passwordEditText = getView().findViewById(R.id.edtPasswordMain);
 
                 userString = userEditText.getText().toString().trim();
                 passwordString = passwordEditText.getText().toString().trim();
@@ -77,7 +75,7 @@ public class MainFragment extends Fragment{
             getAllData.execute(mycomtent.getUrlGetAllUser());
             String strJSON = getAllData.get();
             Log.d (tag, "JSON==>" + strJSON);
-            ;String[] strings = new String[]{"Id", "Name", "Category", "User", "Password"};
+            ;String[] strings = new String[]{"id", "Name", "Category", "User", "Password"};
             String[] userStrings1 = new String[strings.length];
 
             JSONArray jsonArray = new JSONArray(strJSON);
@@ -102,16 +100,8 @@ public class MainFragment extends Fragment{
                 Toast.makeText(getActivity(), "Welcome" + userStrings1[1],
                         Toast.LENGTH_SHORT).show();
 
-                if (strings[2].equals("Saler")) {
-//                    Saler
 
-                    Intent intent = new Intent(getActivity(), SalerActivity.class);
-                    intent.putExtra("Login", userStrings1);
-                    getActivity().startActivity(intent);
 
-                } else {
-//                    Buyer
-                }
 
             } else {
                 MyAlert myAlert = new MyAlert(getActivity());
