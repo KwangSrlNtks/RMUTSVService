@@ -1,5 +1,6 @@
 package com.nuntakaset.siriluk.rmutsvservice.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.nuntakaset.siriluk.rmutsvservice.MyServiceActivity;
 import com.nuntakaset.siriluk.rmutsvservice.R;
 import com.nuntakaset.siriluk.rmutsvservice.utility.GetAllData;
 import com.nuntakaset.siriluk.rmutsvservice.utility.MyAlert;
@@ -100,8 +102,10 @@ public class MainFragment extends Fragment{
                 Toast.makeText(getActivity(), "Welcome" + userStrings1[1],
                         Toast.LENGTH_SHORT).show();
 
-
-
+                Intent intent = new Intent(getActivity(),MyServiceActivity.class);
+                intent.putExtra("Login", userStrings1);
+                getActivity().startActivity(intent);
+                getActivity().finish();
 
             } else {
                 MyAlert myAlert = new MyAlert(getActivity());
